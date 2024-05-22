@@ -344,6 +344,14 @@ class _FlexibleScrollbarState extends State<FlexibleScrollbar> {
                         !isVertical && widget.draggable ? onDragUpdate : null,
                     onHorizontalDragEnd:
                         !isVertical && widget.draggable ? onDragEnd : null,
+                    onPanDown: (details) {
+                      onScrollLineTapDown(
+                        TapDownDetails(
+                          globalPosition: details.globalPosition,
+                          localPosition: details.localPosition,
+                        ),
+                      );
+                    },
                     onTapDown: onScrollLineTapDown,
                     onTapUp: onScrollLineTapUp,
                     child: fadeAnimationWrapper(
